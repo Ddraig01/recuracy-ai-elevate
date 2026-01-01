@@ -41,7 +41,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
           <motion.a
             href="#"
@@ -49,7 +49,6 @@ const Navbar = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <img src={logo} alt="Recuracy" className="h-12 md:h-14 w-auto" />
           </motion.a>
 
           {/* Desktop Navigation */}
