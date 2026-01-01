@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
+import { Send, Mail, Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -20,7 +20,6 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
 
     toast({
@@ -42,18 +41,8 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 animated-gradient-bg opacity-50" />
-      
-      {/* Gradient Orbs */}
-      <motion.div
-        className="absolute top-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl"
-        animate={{ scale: [1, 1.2, 1] }}
-        transition={{ duration: 8, repeat: Infinity }}
-      />
-
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+    <section id="contact" className="py-24 gradient-section">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -62,33 +51,29 @@ const ContactSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="text-secondary font-medium text-sm tracking-wider uppercase">
-            Get Started
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-            Let's Build Your{" "}
-            <span className="gradient-text">AI Automation</span>
+          <span className="section-label">Contact</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display mt-4 mb-6">
+            Let's build something amazing together
           </h2>
           <p className="text-muted-foreground text-lg">
-            Ready to transform your business operations? Reach out and let's discuss 
-            how we can automate your workflows.
+            Ready to automate your business? Get in touch and we'll create a custom solution for you.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="glass-card p-6 sm:p-8"
+            className="card-elevated p-8"
           >
             <h3 className="text-xl font-display font-bold mb-6">Send us a message</h3>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-sm text-muted-foreground mb-2 block">
+                  <label className="text-sm font-medium text-foreground mb-2 block">
                     Your Name
                   </label>
                   <Input
@@ -97,10 +82,11 @@ const ContactSection = () => {
                     onChange={handleChange}
                     placeholder="John Doe"
                     required
+                    className="bg-muted/50"
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-muted-foreground mb-2 block">
+                  <label className="text-sm font-medium text-foreground mb-2 block">
                     Email Address
                   </label>
                   <Input
@@ -110,11 +96,12 @@ const ContactSection = () => {
                     onChange={handleChange}
                     placeholder="john@company.com"
                     required
+                    className="bg-muted/50"
                   />
                 </div>
               </div>
               <div>
-                <label className="text-sm text-muted-foreground mb-2 block">
+                <label className="text-sm font-medium text-foreground mb-2 block">
                   Company Name
                 </label>
                 <Input
@@ -122,19 +109,21 @@ const ContactSection = () => {
                   value={formData.company}
                   onChange={handleChange}
                   placeholder="Your Company"
+                  className="bg-muted/50"
                 />
               </div>
               <div>
-                <label className="text-sm text-muted-foreground mb-2 block">
-                  Tell us about your project
+                <label className="text-sm font-medium text-foreground mb-2 block">
+                  How can we help?
                 </label>
                 <Textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Describe your automation needs, current challenges, or any questions..."
+                  placeholder="Tell us about your automation needs..."
                   rows={5}
                   required
+                  className="bg-muted/50"
                 />
               </div>
               <Button
@@ -164,50 +153,43 @@ const ContactSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col gap-6"
           >
-            {/* Quick Info Cards */}
-            <div className="glass-card p-6">
-              <Mail className="w-6 h-6 text-secondary mb-3" />
-              <h4 className="font-display font-bold mb-1">Email Us</h4>
-              <p className="text-muted-foreground text-sm mb-2">
+            <div className="card-soft p-6">
+              <Mail className="w-8 h-8 text-primary mb-4" />
+              <h4 className="font-display font-bold text-lg mb-2">Email Us</h4>
+              <p className="text-muted-foreground text-sm mb-3">
                 We respond within 24 hours
               </p>
               <a
                 href="mailto:hello@recuracy.com"
-                className="text-secondary hover:text-secondary/80 transition-colors font-medium"
+                className="text-primary hover:text-green-light transition-colors font-semibold"
               >
                 hello@recuracy.com
               </a>
             </div>
 
-            <div className="glass-card p-6">
-              <Clock className="w-6 h-6 text-accent mb-3" />
-              <h4 className="font-display font-bold mb-1">Quick Response</h4>
-              <p className="text-muted-foreground text-sm">
-                Get a detailed proposal within 48 hours after our discovery call. 
-                We value your time.
+            <div className="card-soft p-6">
+              <Phone className="w-8 h-8 text-primary mb-4" />
+              <h4 className="font-display font-bold text-lg mb-2">Call Us</h4>
+              <p className="text-muted-foreground text-sm mb-3">
+                Available Mon-Fri, 9am-6pm IST
               </p>
+              <a
+                href="tel:+919876543210"
+                className="text-primary hover:text-green-light transition-colors font-semibold"
+              >
+                +91 98765 43210
+              </a>
             </div>
 
-            <div className="glass-card p-6">
-              <MapPin className="w-6 h-6 text-primary mb-3" />
-              <h4 className="font-display font-bold mb-1">Work With Us Globally</h4>
-              <p className="text-muted-foreground text-sm">
-                We work with clients worldwide. Remote-first approach ensures 
-                seamless collaboration across time zones.
-              </p>
-            </div>
-
-            {/* CTA Card */}
-            <div className="glass-card p-6 gradient-border">
+            <div className="card-elevated p-6 border-primary/20">
               <h4 className="font-display font-bold text-lg mb-2">
-                Not sure where to start?
+                Free Consultation
               </h4>
               <p className="text-muted-foreground text-sm mb-4">
-                Book a free 30-minute consultation. We'll analyze your current 
-                processes and identify automation opportunities.
+                Book a 30-minute call to discuss your automation needs. We'll analyze your processes and identify quick wins.
               </p>
-              <Button variant="glass" className="group">
-                Schedule Free Consultation
+              <Button variant="outline" className="group">
+                Book A Call
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>

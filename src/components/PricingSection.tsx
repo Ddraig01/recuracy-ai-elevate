@@ -5,48 +5,73 @@ import { Button } from "@/components/ui/button";
 const pricingData = [
   {
     title: "AI Workflow Automation",
-    tiers: [
-      { name: "Simple (1-3 steps)", price: "₹10,000 - ₹12,000", type: "one-time" },
-      { name: "Medium (4-8 steps)", price: "₹15,000 - ₹16,000", type: "one-time" },
-      { name: "Complex (9+ steps)", price: "₹20,000 - ₹25,000", type: "one-time" }
+    description: "Automate repetitive tasks with intelligent workflows",
+    startingPrice: "₹10,000",
+    features: [
+      "Simple workflows (1-3 steps): ₹10,000 - ₹12,000",
+      "Medium (4-8 steps): ₹15,000 - ₹16,000",
+      "Complex (9+ steps): ₹20,000 - ₹25,000",
+      "2-week post-launch support",
+      "Documentation & training included"
     ],
-    highlight: false
-  },
-  {
-    title: "Document Processing",
-    tiers: [
-      { name: "Setup Fee", price: "₹25,000 - ₹30,000", type: "one-time" },
-      { name: "1-1,000 docs", price: "₹15 - ₹25/doc", type: "per-use" },
-      { name: "1,001-10,000 docs", price: "₹8 - ₹15/doc", type: "per-use" },
-      { name: "10,000+ docs", price: "₹3 - ₹7/doc", type: "per-use" }
-    ],
-    highlight: false
+    timeline: "3-6 weeks",
+    popular: false
   },
   {
     title: "Customer Communication",
-    tiers: [
-      { name: "Website Chatbot", price: "₹20,000 setup + ₹6,000/mo", type: "recurring" },
-      { name: "Multi-channel", price: "₹35,000 setup + ₹10,000/mo", type: "recurring" },
-      { name: "Custom AI Agent", price: "₹80,000 setup + ₹15,000/mo", type: "recurring" }
+    description: "24/7 AI chatbots across all channels",
+    startingPrice: "₹20,000",
+    features: [
+      "Website chatbot: ₹20,000 + ₹6,000/mo",
+      "Multi-channel: ₹35,000 + ₹10,000/mo",
+      "Custom AI Agent: ₹80,000+",
+      "GPT-4 powered conversations",
+      "CRM integration included"
     ],
-    highlight: true
+    timeline: "3-5 weeks",
+    popular: true
+  },
+  {
+    title: "Document Processing",
+    description: "AI-powered extraction with 99.8% accuracy",
+    startingPrice: "₹25,000",
+    features: [
+      "Setup: ₹25,000 - ₹30,000",
+      "1-1,000 docs: ₹15-25 per doc",
+      "1,001-10,000: ₹8-15 per doc",
+      "10,000+: ₹3-7 per doc",
+      "OCR for scanned documents"
+    ],
+    timeline: "4-8 weeks",
+    popular: false
   },
   {
     title: "Data Intelligence",
-    tiers: [
-      { name: "Standard Dashboard", price: "₹45,000 + ₹10,000/mo", type: "recurring" },
-      { name: "Advanced Analytics", price: "₹90,000 + ₹25,000/mo", type: "recurring" }
+    description: "AI-powered insights delivered to your inbox",
+    startingPrice: "₹45,000",
+    features: [
+      "Standard: ₹45,000 + ₹10,000/mo",
+      "Advanced: ₹90,000 + ₹25,000/mo",
+      "Custom dashboards",
+      "Predictive analytics",
+      "Automated daily reports"
     ],
-    highlight: false
+    timeline: "4-6 weeks",
+    popular: false
   },
   {
     title: "Custom AI Agents",
-    tiers: [
-      { name: "Standard Project", price: "₹1,50,000 - ₹2,50,000", type: "one-time" },
-      { name: "Multi-Agent Complex", price: "₹5,00,000 - ₹8,00,000", type: "one-time" },
-      { name: "Ongoing Support", price: "₹30,000 - ₹50,000/mo", type: "recurring" }
+    description: "Bespoke AI for unique business needs",
+    startingPrice: "₹1,50,000",
+    features: [
+      "Standard: ₹1,50,000 - ₹2,50,000",
+      "Multi-Agent: ₹5,00,000 - ₹8,00,000",
+      "Support: ₹30,000-50,000/mo",
+      "3 months post-launch support",
+      "Full API documentation"
     ],
-    highlight: false
+    timeline: "8-12 weeks",
+    popular: false
   }
 ];
 
@@ -57,23 +82,8 @@ const PricingSection = () => {
   };
 
   return (
-    <section id="pricing" className="py-24 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-card/50 via-background to-card/50" />
-      
-      {/* Floating Orbs */}
-      <motion.div
-        className="absolute top-1/3 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
-        animate={{ x: [-20, 20, -20], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 8, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute bottom-1/4 right-0 w-80 h-80 bg-secondary/10 rounded-full blur-3xl"
-        animate={{ x: [20, -20, 20], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 10, repeat: Infinity }}
-      />
-
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+    <section id="pricing" className="py-24 relative">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -82,72 +92,65 @@ const PricingSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="text-accent font-medium text-sm tracking-wider uppercase">
-            Pricing
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-            Transparent <span className="gradient-text">Investment Plans</span>
+          <span className="section-label">Pricing</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display mt-4 mb-6">
+            Transparent pricing for every business
           </h2>
           <p className="text-muted-foreground text-lg">
-            Flexible pricing designed for businesses of all sizes. Pay for what you need, 
-            scale when you're ready.
+            Flexible plans that grow with you. No hidden fees, just honest pricing.
           </p>
         </motion.div>
 
-        {/* Pricing Cards Grid */}
+        {/* Pricing Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {pricingData.map((service, index) => (
+          {pricingData.map((plan, index) => (
             <motion.div
-              key={service.title}
+              key={plan.title}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`glass-card p-6 relative overflow-hidden transition-all duration-300 hover:scale-[1.02] ${
-                service.highlight ? "gradient-border glow-accent" : ""
-              }`}
+              className={`relative ${plan.popular ? "lg:-mt-4 lg:mb-4" : ""}`}
             >
-              {service.highlight && (
-                <div className="absolute top-4 right-4 px-3 py-1 bg-accent/20 rounded-full text-accent text-xs font-medium">
-                  Popular
+              {plan.popular && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full">
+                  Most Popular
                 </div>
               )}
+              <div className={`card-elevated p-6 h-full flex flex-col ${
+                plan.popular ? "border-primary border-2 shadow-xl" : ""
+              }`}>
+                <div className="mb-6">
+                  <h3 className="text-xl font-display font-bold mb-2">{plan.title}</h3>
+                  <p className="text-muted-foreground text-sm">{plan.description}</p>
+                </div>
 
-              <h3 className="text-xl font-display font-bold mb-6">{service.title}</h3>
-
-              <div className="space-y-4">
-                {service.tiers.map((tier) => (
-                  <div
-                    key={tier.name}
-                    className="flex items-start justify-between gap-4 pb-4 border-b border-border/50 last:border-0"
-                  >
-                    <div>
-                      <p className="text-sm font-medium">{tier.name}</p>
-                      <span className={`text-xs px-2 py-0.5 rounded-full mt-1 inline-block ${
-                        tier.type === "one-time" 
-                          ? "bg-secondary/20 text-secondary" 
-                          : tier.type === "recurring"
-                          ? "bg-accent/20 text-accent"
-                          : "bg-primary/20 text-primary"
-                      }`}>
-                        {tier.type === "one-time" ? "One-time" : tier.type === "recurring" ? "Recurring" : "Per use"}
-                      </span>
-                    </div>
-                    <p className="text-sm font-bold text-right gradient-text whitespace-nowrap">
-                      {tier.price}
-                    </p>
+                <div className="mb-6">
+                  <span className="text-sm text-muted-foreground">Starting at</span>
+                  <div className="text-3xl font-display font-bold text-primary">
+                    {plan.startingPrice}
                   </div>
-                ))}
-              </div>
+                  <span className="text-sm text-muted-foreground">Timeline: {plan.timeline}</span>
+                </div>
 
-              <Button
-                variant={service.highlight ? "gradient" : "glass"}
-                className="w-full mt-6 group"
-                onClick={scrollToContact}
-              >
-                Get Quote
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
+                <ul className="space-y-3 mb-8 flex-grow">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2 text-sm">
+                      <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Button
+                  variant={plan.popular ? "gradient" : "outline"}
+                  className="w-full group"
+                  onClick={scrollToContact}
+                >
+                  Get Started
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -158,12 +161,12 @@ const PricingSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-16"
+          className="text-center mt-12"
         >
           <p className="text-muted-foreground mb-4">
-            Need a custom solution? We'll tailor a package specifically for your business.
+            Need something custom? Let's build the perfect solution for your business.
           </p>
-          <Button variant="gradient" size="lg" onClick={scrollToContact}>
+          <Button variant="glass" size="lg" onClick={scrollToContact}>
             Request Custom Quote
           </Button>
         </motion.div>
