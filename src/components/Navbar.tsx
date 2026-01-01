@@ -41,15 +41,15 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-20 md:h-24">
+        <div className="flex items-center justify-between h-24 md:h-28">
           {/* Logo */}
           <motion.a
             href="#"
-            className="flex items-center gap-2"
+            className="flex items-center"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <img src={logo} alt="Recuracy" className="h-16 md:h-20 w-auto" />
+            <img src={logo} alt="Recuracy" className="h-20 md:h-28 w-auto max-w-[200px] md:max-w-[280px]" />
           </motion.a>
 
           {/* Desktop Navigation */}
