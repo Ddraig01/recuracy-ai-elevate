@@ -18,7 +18,7 @@ const Footer = () => {
             <motion.img
               src={logo}
               alt="Recuracy"
-              className="h-14 w-auto mb-4"
+              className="h-24 md:h-28 w-auto max-w-[280px] mb-6"
               whileHover={{ scale: 1.02 }}
             />
             <p className="text-muted-foreground text-sm max-w-sm">
