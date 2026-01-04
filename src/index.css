@@ -73,6 +73,14 @@
     --border: 160 15% 18%;
     --input: 160 15% 18%;
     --ring: 160 50% 50%;
+
+    /* Custom colors for dark mode */
+    --peach: 160 20% 12%;
+    --pink-soft: 160 20% 10%;
+    --green-dark: 160 50% 50%;
+    --green-light: 160 45% 60%;
+    --cream: 160 20% 10%;
+
     --sidebar-background: 160 20% 8%;
     --sidebar-foreground: 30 20% 95%;
     --sidebar-primary: 160 50% 50%;
