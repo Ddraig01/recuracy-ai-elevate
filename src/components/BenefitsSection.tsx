@@ -56,7 +56,7 @@ const BenefitsSection = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="card-elevated p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                 <benefit.icon className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-xl font-display font-bold mb-2">{benefit.title}</h3>
