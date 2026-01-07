@@ -49,7 +49,11 @@ const Navbar = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <img src={logo} alt="Recuracy" className="h-28 md:h-40 w-auto max-w-[280px] md:max-w-[400px] dark:brightness-0 dark:invert" />
+            <img
+              src={logo}
+              alt="Recuracy"
+              className="h-28 md:h-40 w-auto max-w-[280px] md:max-w-[400px] dark:brightness-0 dark:invert"
+            />
           </motion.a>
 
           {/* Desktop Navigation */}

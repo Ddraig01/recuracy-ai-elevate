@@ -22,8 +22,8 @@ const Footer = () => {
               whileHover={{ scale: 1.02 }}
             />
             <p className="text-muted-foreground text-sm max-w-sm">
-              Transforming businesses through intelligent automation. 
-              Custom AI solutions that deliver 99.8% accuracy and eliminate manual work.
+              Transforming businesses through intelligent automation. Custom AI
+              solutions that deliver 99.8% accuracy and eliminate manual work.
             </p>
           </div>
 
@@ -34,7 +34,7 @@ const Footer = () => {
               {[
                 { name: "Benefits", href: "#benefits" },
                 { name: "Services", href: "#services" },
-                { name: "Contact", href: "#contact" }
+                { name: "Contact", href: "#contact" },
               ].map((link) => (
                 <li key={link.name}>
                   <button
@@ -67,10 +67,16 @@ const Footer = () => {
             © {currentYear} Recuracy. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-primary transition-colors">
+            <a
+              href="/privacy-policy"
+              className="hover:text-primary transition-colors"
+            >
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-primary transition-colors">
+            <a
+              href="terms-of-service"
+              className="hover:text-primary transition-colors"
+            >
               Terms of Service
             </a>
           </div>

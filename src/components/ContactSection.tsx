@@ -12,7 +12,7 @@ const ContactSection = () => {
     name: "",
     email: "",
     company: "",
-    message: ""
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -20,23 +20,48 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "db0aa8e7-fd37-4041-8e6a-c63c9336c5cb",
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message,
+        }),
+      });
 
-    toast({
-      title: "Message sent successfully!",
-      description: "We'll get back to you within 24 hours.",
-    });
+      const data = await res.json();
 
-    setFormData({ name: "", email: "", company: "", message: "" });
-    setIsSubmitting(false);
+      if (data.success) {
+        toast({
+          title: "Message sent successfully!",
+          description: "We'll get back to you within 24 hours.",
+        });
+
+        setFormData({ name: "", email: "", company: "", message: "" });
+      } else {
+        throw new Error();
+      }
+    } catch {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -56,7 +81,8 @@ const ContactSection = () => {
             Let's build something amazing together
           </h2>
           <p className="text-muted-foreground text-lg">
-            Ready to automate your business? Get in touch and we'll create a custom solution for you.
+            Ready to automate your business? Get in touch and we'll create a
+            custom solution for you.
           </p>
         </motion.div>
 
@@ -69,7 +95,9 @@ const ContactSection = () => {
             transition={{ duration: 0.6 }}
             className="card-elevated p-8"
           >
-            <h3 className="text-xl font-display font-bold mb-6">Send us a message</h3>
+            <h3 className="text-xl font-display font-bold mb-6">
+              Send us a message
+            </h3>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
@@ -163,7 +191,7 @@ const ContactSection = () => {
                 href="mailto:hello@recuracy.com"
                 className="text-primary hover:text-green-light transition-colors font-semibold"
               >
-                hello@recuracy.com
+                business@recuracy.com
               </a>
             </div>
 
@@ -174,10 +202,10 @@ const ContactSection = () => {
                 Available Mon-Fri, 9am-6pm IST
               </p>
               <a
-                href="tel:+919876543210"
+                href="tel:+919372601034"
                 className="text-primary hover:text-green-light transition-colors font-semibold"
               >
-                +91 98765 43210
+                +91 93726 01034
               </a>
             </div>
 
@@ -186,7 +214,8 @@ const ContactSection = () => {
                 Free Consultation
               </h4>
               <p className="text-muted-foreground text-sm mb-4">
-                Book a 30-minute call to discuss your automation needs. We'll analyze your processes and identify quick wins.
+                Book a 30-minute call to discuss your automation needs. We'll
+                analyze your processes and identify quick wins.
               </p>
               <Button variant="outline" className="group">
                 Book A Call
