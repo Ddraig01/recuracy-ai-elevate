@@ -11,32 +11,39 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Recuracy - AI-Powered Business Automation | Transform Your Operations</title>
+        <title>Recuracy — AI Automation & Agentic Solutions Company</title>
+
         <meta
           name="description"
-          content="Transform manual processes into intelligent automated workflows with Recuracy. AI workflow automation, document processing, chatbots & custom AI agents. 99.8% accuracy guaranteed."
+          content="Recuracy is an AI automation company building intelligent workflows, agentic AI systems, and custom automation solutions for modern businesses."
         />
+
         <meta
           name="keywords"
-          content="AI automation, business automation, workflow automation, document processing, AI chatbots, custom AI agents, India AI services"
+          content="AI automation, agentic AI, business automation, workflow automation, AI agents, document processing, AI chatbots"
         />
+
         <link rel="canonical" href="https://recuracy.com" />
-        
-        {/* Open Graph */}
+
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Recuracy - AI-Powered Business Automation" />
+        <meta
+          property="og:title"
+          content="Recuracy — AI Automation & Agentic Solutions Company"
+        />
         <meta
           property="og:description"
-          content="Transform manual processes into intelligent automated workflows. 99.8% accuracy, 24/7 operations."
+          content="Recuracy builds intelligent AI automation systems that eliminate manual work and accelerate business growth."
         />
         <meta property="og:url" content="https://recuracy.com" />
-        
-        {/* Twitter */}
+
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Recuracy - AI-Powered Business Automation" />
+        <meta
+          name="twitter:title"
+          content="Recuracy — AI Automation & Agentic Solutions Company"
+        />
         <meta
           name="twitter:description"
-          content="Transform manual processes into intelligent automated workflows. 99.8% accuracy, 24/7 operations."
+          content="Recuracy builds intelligent AI automation systems that eliminate manual work and accelerate business growth."
         />
       </Helmet>
 
@@ -45,7 +52,7 @@ const Index = () => {
         <HeroSection />
         <BenefitsSection />
         <ServicesSection />
-        
+
         <ContactSection />
         <Footer />
       </main>
