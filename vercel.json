@@ -1,15 +1,12 @@
 {
-  "redirects": [
+  "routes": [
     {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.recuracy.com"
-        }
-      ],
-      "destination": "https://recuracy.com/:path*",
-      "permanent": true
+      "src": "/(.*)",
+      "headers": {
+        "Location": "https://recuracy.com/$1"
+      },
+      "status": 308,
+      "has": [{ "type": "host", "value": "www.recuracy.com" }]
     }
   ]
 }
